@@ -35,4 +35,8 @@ public abstract class Character {
         System.out.println("Character type : " + this.characterName);
         System.out.println("Is alive : " + this.isAlive);
     }
+
+    public String getCharacterName() {
+        return this.characterName;
+    }
 }

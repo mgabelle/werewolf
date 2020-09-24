@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class GameTest {
     @Test
-    public void testGame(){
+    public static void testGame(){
        //Game game = new Game();
 
     }
