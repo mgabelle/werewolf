@@ -1,5 +1,7 @@
 package com.werewolf.backend.characters;
 
+import java.util.ArrayList;
+
 public abstract class Character {
     protected String characterName;
     protected boolean isAlive = true;
