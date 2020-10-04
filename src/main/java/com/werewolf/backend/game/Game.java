@@ -1,34 +1,55 @@
 package com.werewolf.backend.game;
 
 import com.werewolf.backend.characters.Character;
-import com.werewolf.backend.characters.api.Villager;
-import com.werewolf.backend.characters.api.Werewolf;
+import com.werewolf.backend.characters.impl.Villager;
+import com.werewolf.backend.characters.impl.Werewolf;
+import com.werewolf.backend.player.Player;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.IntStream;
 
 public class Game {
-    private int numberOfVillagers = 0;
-    private int numberOfWerewolfs = 0;
-    private ArrayList<Character> characters;
+    private int numberOfVillagers;
+    private int numberOfWerewolfs;
+    private List<Player> playerList;
 
-    public Game(int numberOfVillagers, int numberOfWerewolfs) {
-        characters.add(new Villager());
-        characters.add(new Werewolf());
-    }
-
-    public void addCharacter(Character character) {
-        this.characters.add(character);
+    public Game(List<Player> playerList) {
+        this.playerList = playerList;
+        setNumberOfRoles();
+        assignCharacters(playerList);
     }
 
-    public void addMultipleCharacters(ArrayList<Character> characters) {
-        this.characters.addAll(characters);
+    //We want 30% of werewolves
+    private void setNumberOfRoles() {
+        numberOfWerewolfs = Math.floorDiv(playerList.size(), 3);
+        numberOfVillagers = playerList.size() - numberOfWerewolfs;
     }
-/**
-    public static <T extends Character> ArrayList<T> generateListCharacter(int numberOfCharacters) {
-        ArrayList<T> characters = new ArrayList<T>();
-        for (int n = 0; n < numberOfCharacters; n++) {
-            characters.add(new T());
-        }
+
+    private void assignCharacters(List<Player> playerList) {
+        Collections.shuffle(playerList);
+        playerList.subList(0, numberOfWerewolfs).stream().forEach(
+                player -> {
+                    player.setCharacter(new Werewolf());
+                }
+        );
+        playerList.subList(numberOfWerewolfs, numberOfVillagers).stream().forEach(
+                player -> {
+                    player.setCharacter(new Villager());
+                }
+        );
     }
- */
+
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public int getNumberOfVillagers() {
+        return numberOfVillagers;
+    }
+
+    public int getNumberOfWerewolfs() {
+        return numberOfWerewolfs;
+    }
 }

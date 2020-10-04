@@ -1,11 +1,12 @@
 package com.werewolf.backend.test;
 
-import com.werewolf.backend.characters.api.Villager;
-import com.werewolf.backend.characters.api.Werewolf;
+import com.werewolf.backend.characters.impl.Villager;
+import com.werewolf.backend.characters.impl.Werewolf;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
-public class CharacterTest {
+public class CharactersTest {
     @Test
     public void getTheRightCharacterName(){
         Villager villager = new Villager();

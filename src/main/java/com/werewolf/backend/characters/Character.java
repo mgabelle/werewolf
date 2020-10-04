@@ -1,11 +1,10 @@
 package com.werewolf.backend.characters;
 
-import java.util.ArrayList;
-
 public abstract class Character {
     protected String characterName;
-    protected boolean isAlive = true;
     protected Character hasVotedFor;
+
+    protected boolean isAlive = true;
     protected int numberOfVotes = 0;
 
     public Character(String characterName){
@@ -31,8 +30,8 @@ public abstract class Character {
         System.out.println(String.format("The %s has been killed", this.characterName));
     }
 
-    public void logCharacter() {
-        System.out.println("Character type : " + this.characterName);
+    public void logCharacterInformations() {
+        System.out.println("Character name : " + this.characterName);
         System.out.println("Is alive : " + this.isAlive);
     }
 
