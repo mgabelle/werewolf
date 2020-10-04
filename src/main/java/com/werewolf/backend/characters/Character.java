@@ -3,9 +3,8 @@ package com.werewolf.backend.characters;
 public abstract class Character {
     protected String characterName;
     protected Character hasVotedFor;
-
     protected boolean isAlive = true;
-    protected int numberOfVotes = 0;
+    protected int numberOfVotes;
 
     public Character(String characterName){
         this.characterName = characterName;
@@ -38,4 +37,10 @@ public abstract class Character {
     public String getCharacterName() {
         return this.characterName;
     }
+
+    public int getNumberOfVotes() { return  this.numberOfVotes; }
+
+    public Character getHasVotedFor() { return this.hasVotedFor; }
+
+    public boolean isAlive() { return this.isAlive; }
 }
