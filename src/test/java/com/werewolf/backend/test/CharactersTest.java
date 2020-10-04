@@ -5,7 +5,7 @@ import com.werewolf.backend.characters.impl.Werewolf;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class CharactersTest {
     private Villager villager;
@@ -34,5 +34,12 @@ public class CharactersTest {
 
         villager.cancelVote();
         assertEquals(villager1.getNumberOfVotes(), 0);
+    }
+
+    @Test
+    public void lifeOfCharacterTest() {
+        assertTrue(villager.isAlive());
+        villager.setDead();
+        assertFalse(villager.isAlive());
     }
 }
