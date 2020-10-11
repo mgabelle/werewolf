@@ -3,6 +3,8 @@ package com.werewolf.backend.game;
 import com.werewolf.backend.characters.impl.Villager;
 import com.werewolf.backend.characters.impl.Werewolf;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class Game {
     private Status status = Status.NOT_STARTED;
     private List<Player> playerList;
 
-    private static List<Game> gamesList;
+    private static ArrayList<Game> gamesList = new ArrayList<>();
 
     public Game(){
         addGameToList(this);
