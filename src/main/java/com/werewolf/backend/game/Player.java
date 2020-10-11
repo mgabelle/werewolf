@@ -1,4 +1,4 @@
-package com.werewolf.backend.player;
+package com.werewolf.backend.game;
 
 import com.werewolf.backend.characters.Character;
 

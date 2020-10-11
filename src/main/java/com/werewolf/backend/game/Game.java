@@ -1,14 +1,10 @@
 package com.werewolf.backend.game;
 
-import com.werewolf.backend.characters.Character;
 import com.werewolf.backend.characters.impl.Villager;
 import com.werewolf.backend.characters.impl.Werewolf;
-import com.werewolf.backend.player.Player;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Game {
     private int numberOfVillagers;
@@ -29,16 +25,8 @@ public class Game {
 
     private void assignCharacters(List<Player> playerList) {
         Collections.shuffle(playerList);
-        playerList.subList(0, numberOfWerewolfs).stream().forEach(
-                player -> {
-                    player.setCharacter(new Werewolf());
-                }
-        );
-        playerList.subList(numberOfWerewolfs, numberOfVillagers).stream().forEach(
-                player -> {
-                    player.setCharacter(new Villager());
-                }
-        );
+        playerList.subList(0, numberOfWerewolfs).forEach(player -> player.setCharacter(new Werewolf()));
+        playerList.subList(numberOfWerewolfs, numberOfVillagers).forEach(player -> player.setCharacter(new Villager()));
     }
 
     public List<Player> getPlayerList() {

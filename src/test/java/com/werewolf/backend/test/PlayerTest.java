@@ -3,7 +3,7 @@ package com.werewolf.backend.test;
 import com.werewolf.backend.characters.CharacterName;
 import com.werewolf.backend.characters.impl.Villager;
 import com.werewolf.backend.characters.impl.Werewolf;
-import com.werewolf.backend.player.Player;
+import com.werewolf.backend.game.Player;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

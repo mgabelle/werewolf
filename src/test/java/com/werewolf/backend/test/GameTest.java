@@ -1,9 +1,8 @@
 package com.werewolf.backend.test;
 
 import com.werewolf.backend.game.Game;
-import com.werewolf.backend.player.Player;
+import com.werewolf.backend.game.Player;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -37,8 +36,7 @@ public class GameTest {
     }
 
     private static void generateListPlayer(int size) {
-        listPlayerStub = new ArrayList<Player>();
-        listPlayerStub.clear();
+        listPlayerStub = new ArrayList<>();
         IntStream.range(0, size).forEach(n -> listPlayerStub.add(new Player("Player" + n)));
     }
 }
