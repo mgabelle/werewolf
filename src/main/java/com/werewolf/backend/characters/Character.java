@@ -29,11 +29,6 @@ public abstract class Character {
         System.out.println(String.format("The %s has been killed", this.characterName));
     }
 
-    public void logCharacterInformations() {
-        System.out.println("Character name : " + this.characterName);
-        System.out.println("Is alive : " + this.isAlive);
-    }
-
     public CharacterName getCharacterName() {
         return this.characterName;
     }
