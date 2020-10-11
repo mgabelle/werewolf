@@ -15,11 +15,6 @@ public class Player {
         this.character = character;
     }
 
-    public void logPlayerInformations() {
-        System.out.println("Player pseudo : " + this.getPseudo());
-        this.character.logCharacterInformations();
-    }
-
     public void setCharacter(Character character) {
         this.character = character;
     }
