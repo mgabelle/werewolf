@@ -1,5 +1,6 @@
 package com.werewolf.backend.test;
 
+import com.werewolf.backend.characters.CharacterName;
 import com.werewolf.backend.characters.impl.Villager;
 import com.werewolf.backend.characters.impl.Werewolf;
 import org.junit.Before;
@@ -19,21 +20,24 @@ public class CharactersTest {
 
     @Test
     public void getTheRightCharacterName(){
-        assertEquals(villager.getCharacterName(), "Villager");
-        assertEquals(werewolf.getCharacterName(), "Werewolf");
+        assertEquals(CharacterName.VILLAGER, villager.getCharacterName());
+        assertEquals(CharacterName.WEREWOLF, werewolf.getCharacterName());
+
+        assertEquals("villager", CharacterName.VILLAGER.getCharacterName());
+        assertEquals("werewolf", CharacterName.WEREWOLF.getCharacterName());
     }
 
     @Test
     public void charactersVoteTest() {
         Villager villager1 = new Villager();
-        assertEquals(villager1.getNumberOfVotes(),0);
+        assertEquals(0, villager1.getNumberOfVotes());
 
         villager.vote(villager1);
-        assertEquals(villager1.getNumberOfVotes(), 1);
-        assertEquals(villager.getHasVotedFor(), villager1);
+        assertEquals(1, villager1.getNumberOfVotes());
+        assertEquals(villager1, villager.getHasVotedFor());
 
         villager.cancelVote();
-        assertEquals(villager1.getNumberOfVotes(), 0);
+        assertEquals(0, villager1.getNumberOfVotes());
     }
 
     @Test

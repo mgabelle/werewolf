@@ -1,12 +1,12 @@
 package com.werewolf.backend.characters;
 
 public abstract class Character {
-    protected String characterName;
+    protected CharacterName characterName;
     protected Character hasVotedFor;
     protected boolean isAlive = true;
     protected int numberOfVotes;
 
-    public Character(String characterName){
+    public Character(CharacterName characterName){
         this.characterName = characterName;
     }
 
@@ -34,7 +34,7 @@ public abstract class Character {
         System.out.println("Is alive : " + this.isAlive);
     }
 
-    public String getCharacterName() {
+    public CharacterName getCharacterName() {
         return this.characterName;
     }
 
