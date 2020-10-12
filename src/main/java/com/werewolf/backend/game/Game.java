@@ -2,6 +2,7 @@ package com.werewolf.backend.game;
 
 import com.werewolf.backend.characters.impl.Villager;
 import com.werewolf.backend.characters.impl.Werewolf;
+import com.werewolf.backend.manage.GameManager;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -13,8 +14,6 @@ public class Game {
     private int numberOfWerewolfs;
     private Status status = Status.NOT_STARTED;
     private List<Player> playerList;
-
-    private static ArrayList<Game> gamesList = new ArrayList<>();
 
     public Game(){
         addGameToList(this);
@@ -39,7 +38,7 @@ public class Game {
         playerList.subList(numberOfWerewolfs, numberOfVillagers).forEach(player -> player.setCharacter(new Villager()));
     }
 
-    public void begin() {
+    public void start() {
         this.setStatus(Status.STARTED);
     }
 
@@ -48,18 +47,16 @@ public class Game {
     }
 
     public void addGameToList(Game game) {
-        gamesList.add(game);
+        GameManager.addGame(game);
     }
 
     public List<Player> getPlayerList() {
         return playerList;
     }
 
-    public static List<Game> getGamesList() {
-        return gamesList;
-    }
-
     private void setStatus(Status status) {
         this.status = status;
     }
+
+    public Status getStatus() { return this.status; }
 }

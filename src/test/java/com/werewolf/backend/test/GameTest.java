@@ -2,6 +2,8 @@ package com.werewolf.backend.test;
 
 import com.werewolf.backend.game.Game;
 import com.werewolf.backend.game.Player;
+import com.werewolf.backend.game.Status;
+import com.werewolf.backend.game.Status.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -33,6 +35,18 @@ public class GameTest {
         Game game = new Game(listPlayerStub);
         generateListPlayer(listPlayerStubSize);
         assertNotEquals(game.getPlayerList(), listPlayerStub);
+    }
+
+    @Test
+    public void gameStatusTest() {
+        Game game = new Game();
+        assertEquals(Status.NOT_STARTED, game.getStatus());
+
+        game.start();
+        assertEquals(Status.STARTED, game.getStatus());
+
+        game.end();
+        assertEquals(Status.ENDED, game.getStatus());
     }
 
     private static void generateListPlayer(int size) {
